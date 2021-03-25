@@ -6,8 +6,7 @@ import postsApi from 'api/posts'
 const App = ({ photos, posts }) => (
   <div className="container">
     <Head>
-      <title>My albums</title>
-      <link rel="icon" href="/favicon.ico"/>
+      <title>My photos and posts !</title>
     </Head>
 
     <section>
