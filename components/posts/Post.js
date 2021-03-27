@@ -24,7 +24,7 @@ const Post = ({ post, lastEdited }) => (
 )
 
 Post.propTypes = {
-  post: PostClass.proptypes.isRequired,
+  post: PostClass.propTypes.isRequired,
   lastEdited: PropTypes.string.isRequired,
 }
 

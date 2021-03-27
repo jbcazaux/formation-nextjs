@@ -6,7 +6,7 @@ import PostClass from 'domain/Post'
 const Post = ({ post, lastEdited }) => <PostComponent post={post} lastEdited={lastEdited} />
 
 Post.propTypes = {
-  post: PostClass.proptypes.isRequired,
+  post: PostClass.propTypes.isRequired,
   lastEdited: PropTypes.string.isRequired,
 }
 
