@@ -1,4 +1,3 @@
-import React from 'react'
 import photosApi from 'api/photos'
 import Head from 'next/head'
 import Button from 'components/Button'

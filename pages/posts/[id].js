@@ -1,4 +1,3 @@
-import React from 'react'
 import postsApi from 'api/posts'
 import PostComponent from 'components/posts/Post'
 

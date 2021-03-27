@@ -1,4 +1,3 @@
-import React from 'react'
 import Head from 'next/head'
 import styles from './Post.module.css'
 import Button from 'components/Button'
