@@ -1,12 +1,17 @@
+import React from 'react'
 import Link from 'next/link'
 import MButton from '@material-ui/core/Button'
 import PropTypes from 'prop-types'
 
-const LinkButton = ({ className, href, children }) => (
+const LinkButton = React.forwardRef(({ className, href, children }, ref) => (
   <Link href={href}>
-    <a className={className}>{children}</a>
+    <a ref={ref} className={className}>
+      {children}
+    </a>
   </Link>
-)
+))
+
+LinkButton.displayName = 'LinkButton'
 
 LinkButton.propTypes = {
   className: PropTypes.string,
