@@ -32,10 +32,10 @@ export const getStaticPaths = async () => {
   const paths = photos.map(photo => ({
     params: { id: String(photo.id) },
   }))
-  return { paths, fallback: false }
+  return { paths, fallback: 'blocking' }
 }
 
 export const getStaticProps = async ({ params }) => {
   const photo = await photosApi.fetchById(params.id)
-  return { props: { photo } }
+  return { props: { photo }, notFound: params.id === '13' }
 }
