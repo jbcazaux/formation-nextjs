@@ -34,6 +34,9 @@ const App = ({ photos, posts }) => (
         </li>
       ))}
     </section>
+    <Link href="/time">
+      <a>What time is it ?</a>
+    </Link>
   </div>
 )
 
