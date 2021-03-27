@@ -9,13 +9,13 @@ const App = ({ photos, posts }) => (
       <title>My photos and posts !</title>
     </Head>
 
-    <section>
+    <section id="photos">
       <h3>Photos</h3>
       {photos.map(p => (
         <li key={p.id}>{p.id} - <Link href={`/photos/${p.id}`}><a>{p.title}</a></Link></li>
       ))}
     </section>
-    <section>
+    <section id="posts">
       <h3>Posts</h3>
       {posts.map(p => (
         <li key={p.id}>{p.id} - <Link href={`/posts/${p.id}`}><a>{p.title}</a></Link></li>
