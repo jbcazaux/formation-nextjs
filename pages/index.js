@@ -2,6 +2,9 @@ import Head from 'next/head'
 import Link from 'next/link'
 import photosApi from 'api/photos'
 import postsApi from 'api/posts'
+import PropTypes from 'prop-types'
+import Photo from 'domain/Photo'
+import Post from 'domain/Post'
 
 const App = ({ photos, posts }) => (
   <div className="container">
@@ -12,17 +15,32 @@ const App = ({ photos, posts }) => (
     <section id="photos">
       <h3>Photos</h3>
       {photos.map(p => (
-        <li key={p.id}>{p.id} - <Link href={`/photos/${p.id}`}><a>{p.title}</a></Link></li>
+        <li key={p.id}>
+          {p.id} -{' '}
+          <Link href={`/photos/${p.id}`}>
+            <a>{p.title}</a>
+          </Link>
+        </li>
       ))}
     </section>
     <section id="posts">
       <h3>Posts</h3>
       {posts.map(p => (
-        <li key={p.id}>{p.id} - <Link href={`/posts/${p.id}`}><a>{p.title}</a></Link></li>
+        <li key={p.id}>
+          {p.id} -{' '}
+          <Link href={`/posts/${p.id}`}>
+            <a>{p.title}</a>
+          </Link>
+        </li>
       ))}
     </section>
   </div>
 )
+
+App.propTypes = {
+  photos: PropTypes.arrayOf(Photo.propTypes).isRequired,
+  posts: PropTypes.arrayOf(Post.propTypes).isRequired,
+}
 
 export default App
 

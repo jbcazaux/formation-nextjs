@@ -1,9 +1,14 @@
 import postsApi from 'api/posts'
 import PostComponent from 'components/posts/Post'
+import PropTypes from 'prop-types'
+import PostClass from 'domain/Post'
 
-const Post = ({ post, lastEdited }) => (
-  <PostComponent post={post} lastEdited={lastEdited}/>
-)
+const Post = ({ post, lastEdited }) => <PostComponent post={post} lastEdited={lastEdited} />
+
+Post.propTypes = {
+  post: PostClass.proptypes.isRequired,
+  lastEdited: PropTypes.string.isRequired,
+}
 
 export default Post
 

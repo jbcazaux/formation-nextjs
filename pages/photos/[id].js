@@ -1,17 +1,18 @@
 import photosApi from 'api/photos'
 import Head from 'next/head'
 import Button from 'components/Button'
+import PhotoClass from 'domain/Photo'
 
 const Photo = ({ photo }) => (
   <>
     <Head>
       <title>My albums - {photo.id}</title>
-      <link rel="icon" href="/favicon.ico"/>
+      <link rel="icon" href="/favicon.ico" />
       <meta name="robots" content="index, follow" />
-      <meta name="keywords" content={photo.title.split(' ').join(',')}/>
+      <meta name="keywords" content={photo.title.split(' ').join(',')} />
     </Head>
     <h2>{photo.title}</h2>
-    <img src={photo.url} width="600px" height="600px" alt={photo.title}/>
+    <img src={photo.url} width="600px" height="600px" alt={photo.title} />
     <div>
       <Button color="primary" href="/">
         Back to my album
@@ -19,6 +20,10 @@ const Photo = ({ photo }) => (
     </div>
   </>
 )
+
+Photo.propTypes = {
+  photo: PhotoClass.propTypes.isRequired,
+}
 
 export default Photo
 
