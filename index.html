@@ -84,16 +84,142 @@
             <h3>Les pages</h3>
         </section>
         <section>
+            <h3>
+                Hello !
+            </h3>
+            <pre><code data-trim>
+                npx create-next-app
+                # or
+                yarn create next-app
+            </code></pre>
+            <pre>page/index.js<code data-trim>
+                const Hello = () => &lt;div>Hello kiabi !&lt;/div&gt;
+                export default Hello
+            </code></pre>
+            <pre>page/time.js<code data-trim>
+                const Time = () => &lt;div>It's time to practice !&lt;/div&gt;
+                export default Time
+            </code></pre>
+        </section>
+        <section>
             <h3>Ajouter des composants ReactJs</h3>
+            <pre>components/Hello.js<code data-trim>
+                const Hello = ({name}) => &lt;div&gt;Hello {name}&lt;/div&gt;
+                export default Hello
+            </code></pre>
+            <pre>page/index.js<code data-trim>
+                import Hello from 'components/Hello'
+                const Homepage = () => &lt;Hello name="kiabi" /&gt;
+                export default Homepage
+            </code></pre>
         </section>
         <section>
             <h3>Style et librairies de composants</h3>
         </section>
         <section>
-            <h3>Optimisations</h3>
+            <h3>CSS Modules</h3>
+            <pre>components/Hello.module.css<code data-trim>
+                .hello {
+                    color: red;
+                    font-size: 1.5em;
+                }
+            </code></pre>
+            <pre>components/Hello.js<code data-trim>
+                import styles from './Hello.module.css'
+
+                const Hello = ({name}) => (
+                    &lt;div className={style.hello} &gt;Hello {name}&lt;/div&gt;
+                )
+                export default Hello
+            </code></pre>
         </section>
         <section>
-            <h3>Server Side Rendering</h3>
+            <h3>Styled Components</h3>
+            <p>Il faut modifier <span style="font-style: italic">_app.js</span> et <span style="font-style: italic">_document.js</span>
+                pour utiliser la librairie dans les composants React.</p>
+            <p>
+                <a href="https://github.com/vercel/next.js/tree/master/examples/with-styled-components">Exemple
+                    officiel</a>
+            </p>
+        </section>
+        <section>
+            <h3>Material-ui</h3>
+            <pre>components/LinkButton.js<code data-trim>
+                import Link from 'next/link'
+                import Button from '@material-ui/core/Button'
+                
+                const MyLink = ({ className, href, children }) =&gt; (
+                   &lt;Link href={href}&gt;
+                     &lt;a className={className}&gt;
+                       {children}
+                     &lt;/a&gt;
+                   &lt;/Link&gt;
+                ))
+
+                const LinkButton = ({ href, children, color }) =&gt; (
+                  &lt;Button href={href} variant="contained"
+                    component={MyLink}
+                    color={color}&gt;
+                    {children}
+                  &lt;/Button&gt;
+                )
+               export default LinkButton
+            </code></pre>
+            <p style="font-size: .5em; color: #dd5566 ">Attention, cet exemple est simplifié. Il faut ajouter un
+                forwardRef au composant MyLink</p>
+        </section>
+        <section>
+            <h3>Material-ui</h3>
+            <pre>components/Hello.js<code data-trim>
+                import LinkButton from 'components/LinkButton'
+
+                const Hello = ({name}) => (
+                    &lt;LinkButton color="primary" href="/anotherPage"&gt;
+                        Hello {name}, let's go to another page !
+                    &lt;/LinkButton&gt;
+                )
+
+                export default Hello
+            </code></pre>
+        </section>
+        <section>
+            <h3>Material-ui</h3>
+            <pre>theme.js<code data-trim>
+                import { createMuiTheme } from '@material-ui/core/styles'
+
+                const theme = createMuiTheme({
+                  palette: {
+                    primary: {
+                      light: '#757ce8',
+                      main: '#3f50b5',
+                      dark: '#002884',
+                      contrastText: '#fff',
+                    },
+                    secondary: {
+                      main: '#f44336',
+                    },
+                  },
+                })
+
+                export default theme
+            </code></pre>
+        </section>
+        <section>
+            <h3>Material-ui</h3>
+            <pre>page/_app.js<code data-trim>
+                import theme from 'theme/theme'
+                import { ThemeProvider as MuiThemeProvider }
+                    from '@material-ui/core/styles'
+                
+                const App = ({ Component, pageProps }) =&gt; (
+                    &lt;MuiThemeProvider theme={theme}&gt;
+                      &lt;Component {...pageProps} /&gt;
+                    &lt;/MuiThemeProvider&gt;
+                )
+            </code></pre>
+        </section>
+        <section>
+            <h3>Optimisations - Server Side Rendering</h3>
         </section>
         <section>
             <h3>getStaticProps</h3>
