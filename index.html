@@ -342,6 +342,49 @@ export const getStaticProps = async ({ params }) => {
             <h3>Tester</h3>
         </section>
         <section>
+            <h3>
+                Cypress
+            </h3>
+            <pre><code data-trim>
+                yarn add cypress -D
+                # or
+                npm i cypress -D
+            </code></pre>
+            <pre>package.json<code data-trim>
+                "scripts": {
+                    "cypress:open": "cypress open",
+                    "cypress:run": "cypress run"
+                },
+            </code></pre>
+            <pre>cypress.json<code data-trim>
+                {
+                  "baseUrl": "http://localhost:3000"
+                }
+            </code></pre>
+            <pre><code data-trim>
+                cypress open
+            </code></pre>
+        </section>
+        <section>
+            <h3>Cypress</h3>
+            <pre>cypress/integration/index.spec.js<code data-trim>
+            context('Home', () => {
+              beforeEach(() => {
+                cy.visit('/')
+              })
+
+              it('should find the titles of the homepage', () => {
+                cy.get('h1').eq(0).contains('My first title')
+                cy.get('h1').eq(1).contains('My second title')
+              })
+
+              it('should find 10 products on the homepage', () => {
+                cy.get('#products>li').should('have.length', 10)
+              })
+            })
+            </code> </pre>
+        </section>
+        <section>
             <h3>I18N</h3>
         </section>
         <section>
