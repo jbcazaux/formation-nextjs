@@ -8,7 +8,7 @@ const App = ({ Component, pageProps }) => (
     <Head>
       <title>My nice blog !</title>
       <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-      <meta key="about" about="helloworld2" />
+      <meta key="about" about="my photos and posts" />
     </Head>
     <MuiThemeProvider theme={theme}>
       <Component {...pageProps} />

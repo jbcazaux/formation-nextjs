@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import styles from './Post.module.css'
 import PropTypes from 'prop-types'
-import Button from 'components/Button'
+import LinkButton from 'components/LinkButton'
 import PostClass from 'domain/Post'
 
 const Post = ({ post, lastEdited }) => (
@@ -16,9 +16,9 @@ const Post = ({ post, lastEdited }) => (
     <div className={styles.edited}>Last edited: {lastEdited}</div>
     <p>{post.body}</p>
     <div>
-      <Button color="secondary" href="/">
+      <LinkButton color="secondary" href="/">
         Back to my posts
-      </Button>
+      </LinkButton>
     </div>
   </>
 )

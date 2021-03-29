@@ -1,9 +1,9 @@
 import React from 'react'
 import Link from 'next/link'
-import MButton from '@material-ui/core/Button'
+import Button from '@material-ui/core/Button'
 import PropTypes from 'prop-types'
 
-const LinkButton = React.forwardRef(({ className, href, children }, ref) => (
+const CustomLink = React.forwardRef(({ className, href, children }, ref) => (
   <Link href={href}>
     <a ref={ref} className={className}>
       {children}
@@ -11,24 +11,24 @@ const LinkButton = React.forwardRef(({ className, href, children }, ref) => (
   </Link>
 ))
 
-LinkButton.displayName = 'LinkButton'
+CustomLink.displayName = 'CustomLink'
 
-LinkButton.propTypes = {
+CustomLink.propTypes = {
   className: PropTypes.string,
   href: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 }
 
-const Button = ({ href, children, color }) => (
-  <MButton href={href} component={LinkButton} variant="contained" color={color}>
+const LinkButton = ({ href, children, color }) => (
+  <Button href={href} component={CustomLink} variant="contained" color={color}>
     {children}
-  </MButton>
+  </Button>
 )
 
-Button.propTypes = {
+LinkButton.propTypes = {
   color: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
   children: PropTypes.node.isRequired,
 }
 
-export default Button
+export default LinkButton

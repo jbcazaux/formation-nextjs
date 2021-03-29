@@ -1,6 +1,6 @@
 import photosApi from 'api/photos'
 import Head from 'next/head'
-import Button from 'components/Button'
+import LinkButton from 'components/LinkButton'
 import PhotoClass from 'domain/Photo'
 
 const Photo = ({ photo }) => (
@@ -14,9 +14,9 @@ const Photo = ({ photo }) => (
     <h2>{photo.title}</h2>
     <img src={photo.url} width="600px" height="600px" alt={photo.title} />
     <div>
-      <Button color="primary" href="/">
+      <LinkButton color="primary" href="/">
         Back to my album
-      </Button>
+      </LinkButton>
     </div>
   </>
 )
