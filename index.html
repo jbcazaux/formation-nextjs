@@ -219,19 +219,86 @@
             </code></pre>
         </section>
         <section>
-            <h3>Optimisations - Server Side Rendering</h3>
+            <h3>Server Side Rendering & Data</h3>
         </section>
         <section>
             <h3>getStaticProps</h3>
+            <pre>page/somePage.js<code data-trim>
+                import myApi from 'apis/someApi'
+
+                const MyPage = ({someData}) => &lt;div&gt;My data: {someData}&lt;/div&gt;
+
+                export const getStaticProps = async () => {
+                    const data = await myApi.fetch()
+                    return {
+                        props: {
+                          someData: data,
+                        },
+                    }
+                }
+            </code></pre>
         </section>
         <section>
             <h3>getStaticPaths</h3>
+            <pre>page/users.js<code data-trim>
+                import usersApi from 'apis/usersApi'
+
+                export default ({user}) => &lt;div&gt;name: {user.name}&lt;/div&gt;
+
+                export const getStaticPaths = async () => {
+                  const users = await usersApi.fetchAll()
+                  const paths = users.map(user => ({
+                    params: { userId: `${user.id}` },
+                  }))
+                  return { paths }
+                }
+                export const getStaticProps = async ({ params }) => {
+                    const user = await usersApi.fetch(params.userId)
+                    return {
+                        props: {
+                          user: user,
+                        },
+                    }
+                }
+            </code></pre>
         </section>
-        <section>
+       <section>
             <h3>getServerSideProps</h3>
+            <pre>page/somePage.js<code data-trim>
+                import myApi from 'apis/someApi'
+
+                const MyPage = ({someData}) => &lt;div&gt;My data: {someData}&lt;/div&gt;
+
+                export const getServerSideProps = async () => {
+                    const data = await myApi.fetch()
+                    return {
+                        props: {
+                          someData: data,
+                        },
+                    }
+                }
+            </code></pre>
         </section>
         <section>
-            <h3>Fallback</h3>
+            <h3>Fallback & notFound</h3>
+            <pre>page/users.js<code data-noescape>
+import usersApi from 'apis/usersApi'
+
+export default ({user}) => &lt;div&gt;name: {user.name}&lt;/div&gt;
+
+export const getStaticPaths = async () => {
+  const users = await usersApi.fetchAll()
+  const paths = users.map(user => ({
+    params: { userId: `${user.id}` },
+  }))
+  return { paths, <mark>fallback: 'blocking'</mark> }
+}
+
+export const getStaticProps = async ({ params }) => {
+    const user = await usersApi.fetch(params.userId)
+    return { props: { user }, <mark>notFound: params.id === '13'</mark> }
+}
+            </code></pre>
         </section>
         <section>
             <h3>Images</h3>
