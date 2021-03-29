@@ -7,6 +7,8 @@ const App = ({ Component, pageProps }) => (
   <>
     <Head>
       <title>My nice blog !</title>
+      <link rel="icon" href="/favicon.ico" />
+      <meta name="robots" content="index, follow" />
       <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       <meta key="about" about="my photos and posts" />
     </Head>

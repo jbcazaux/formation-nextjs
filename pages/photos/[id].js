@@ -7,8 +7,6 @@ const Photo = ({ photo }) => (
   <>
     <Head>
       <title>My albums - {photo.id}</title>
-      <link rel="icon" href="/favicon.ico" />
-      <meta name="robots" content="index, follow" />
       <meta name="keywords" content={photo.title.split(' ').join(',')} />
     </Head>
     <h2>{photo.title}</h2>
