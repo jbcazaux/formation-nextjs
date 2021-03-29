@@ -2,6 +2,8 @@ import photosApi from 'api/photos'
 import Head from 'next/head'
 import LinkButton from 'components/LinkButton'
 import PhotoClass from 'domain/Photo'
+import Image from 'next/image'
+import Spacer from '../../components/Spacer'
 
 const Photo = ({ photo }) => (
   <>
@@ -10,12 +12,14 @@ const Photo = ({ photo }) => (
       <meta name="keywords" content={photo.title.split(' ').join(',')} />
     </Head>
     <h2>{photo.title}</h2>
-    <img src={photo.url} width="600px" height="600px" alt={photo.title} />
+    <Image src={photo.url} width={600} height={600} alt={photo.title} />
     <div>
       <LinkButton color="primary" href="/">
         Back to my album
       </LinkButton>
     </div>
+    <Spacer height={800} />
+    <Image src={photo.thumbnailUrl} width={150} height={150} alt={photo.title} />
   </>
 )
 
