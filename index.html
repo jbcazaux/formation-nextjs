@@ -304,7 +304,39 @@ export const getStaticProps = async ({ params }) => {
             <h3>Images</h3>
         </section>
         <section>
-            <h3>SEO</h3>
+            <h3>SEO - meta tags</h3>
+            <pre>page/_app.js<code data-trim>
+            import Head from 'next/head'
+
+            const App = ({ Component, pageProps }) => (
+            &lt;&gt;
+                &lt;Head&gt;
+                    &lt;title&gt;Generic title of the site !&lt;/title&gt;
+                    &lt;link rel="icon" href="/favicon.ico" /&gt;
+                    &lt;meta name="robots" content="index, follow" /&gt;
+                    &lt;meta name="viewport" content="minimum-scale=1,
+                        initial-scale=1, width=device-width" /&gt;
+                    &lt;meta key="about" about="super web site" /&gt;
+                &lt;/Head&gt;
+                &lt;Component {...pageProps} /&gt;
+            &lt;/&gt;
+        )
+            </code> </pre>
+        </section>
+        <section>
+            <h3>SEO - meta tags</h3>
+            <pre>page/product.js<code data-trim>
+            const Product = ({ product }) =&gt; (
+              &lt;&gt;
+                &lt;Head&gt;
+                  &lt;title&gt;My Site - {product.name}&lt;/title&gt;
+                  &lt;meta name="keywords" content={product.tags.join(',')} /&gt;
+                &lt;/Head&gt;
+                &lt;h2&gt;{product.name}&lt;/h2&gt;
+                &lt;div&gt;It is a super product, buy it now !&lt;/div&gt;
+              &lt;/&gt;
+            )
+            </code> </pre>
         </section>
         <section>
             <h3>Tester</h3>
