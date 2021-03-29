@@ -147,7 +147,7 @@
             <pre>components/LinkButton.js<code data-trim>
                 import Link from 'next/link'
                 import Button from '@material-ui/core/Button'
-                
+
                 const MyLink = ({ className, href, children }) =&gt; (
                    &lt;Link href={href}&gt;
                      &lt;a className={className}&gt;
@@ -210,7 +210,7 @@
                 import theme from 'theme/theme'
                 import { ThemeProvider as MuiThemeProvider }
                     from '@material-ui/core/styles'
-                
+
                 const App = ({ Component, pageProps }) =&gt; (
                     &lt;MuiThemeProvider theme={theme}&gt;
                       &lt;Component {...pageProps} /&gt;
@@ -301,7 +301,21 @@ export const getStaticProps = async ({ params }) => {
             </code></pre>
         </section>
         <section>
-            <h3>Images</h3>
+            <h3>Images - lazy loading</h3>
+            <pre>next.config.js<code data-trim>
+            module.exports = {
+              images: {
+                domains: ['my.site.com'],
+              },
+            }
+            </code> </pre>
+            <pre>page/anyPage.js<code data-trim>
+            &lt;Image
+                src={my.site.com/myimage.jpg}
+                width={150}
+                height={150}
+                alt="my image" /&gt;
+            </code> </pre>
         </section>
         <section>
             <h3>SEO - meta tags</h3>
