@@ -5,6 +5,7 @@ import postsApi from 'api/posts'
 import PropTypes from 'prop-types'
 import Photo from 'domain/Photo'
 import Post from 'domain/Post'
+import 'i18n/i18n'
 
 const App = ({ photos, posts }) => (
   <div className="container">

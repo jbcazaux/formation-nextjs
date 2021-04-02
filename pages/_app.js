@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import Head from 'next/head'
 import theme from 'theme/theme'
 import { ThemeProvider as MuiThemeProvider } from '@material-ui/core/styles'
+import { appWithTranslation } from 'next-i18next'
 
 const App = ({ Component, pageProps }) => (
   <>
@@ -23,4 +24,4 @@ App.propTypes = {
   pageProps: PropTypes.object,
 }
 
-export default App
+export default appWithTranslation(App)
